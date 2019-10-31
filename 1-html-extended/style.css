@@ -1,0 +1,28 @@
+button{
+    background-color: #ff8301;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+input {
+    padding: 5px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #af9311;
+}
+
+#login-form{
+    width: 500px;
+    margin: 0 auto;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Examples</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        header nav {
+            display: inline-block;
+        }
+
+        header ul {
+            list-style: none;
+        }
+
+        header li {
+            display: inline-block;
+        }
+
+        .new {
+            font-weight: bolder;
+        }
+
+        #main-logo {
+            font-weight: bolder;
+        }
+
+        main li,
+        article {
+            color: red;
+        }
+
+        main div {
+            margin: 10px;
+        }
+
+        div>div>div {
+            color: green;
+        }
+
+        p:nth-child(2n+1) {
+            font-weight: bolder;
+        }
+
+        table,
+        td {
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        tr:nth-child(2n) {
+            background-color: #eee;
+        }
+
+
+        td:nth-child(2n) {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:first-child {
+            font-weight: bolder;
+            font-size: 30px;
+        }
+
+        td:hover {
+            background-color: salmon;
+        }
+
+        article:hover {
+            text-shadow: 1px 1px grey;
+            margin: 10px;
+        }
+
+        .col-1 {
+            width: 25%;
+            float:left;
+        }
+
+        .col-2 {
+            width: 50%;
+            float:left;
+        }
+
+        .col-3 {
+            width: 75%;
+            float:left;
+        }
+
+        .col-4 {
+            width: 100%;
+            float:left;
+        }
+
+        .row::after {
+            clear:both;
+            display: table;
+            content: "";
+        }
+
+        main{
+            width: 80%;
+        }
+
+        table td{
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-1">
+            <div style="height: 100px;width: 100px;background-color: #f00;"></div>
+        </div>
+        <div class="col-1">2</div>
+        <div class="col-1">3</div>
+        <div class="col-1">4</div>
+    </div>
+
+    <header>
+        <span id="main-logo">Our cool site</span>
+        <nav>
+            <ul class="menu">
+                <li><a href="">Начало</a></li>
+                <li><a href="">Блог</a></li>
+                <li><a href="">Новини</a></li>
+                <li><a href="">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Новини</h1>
+
+        <table>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </table>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugit quasi qui, at sequi ipsum rerum excepturi
+            veniam amet facilis voluptates perspiciatis soluta nemo dignissimos veritatis porro facere! Magnam, enim?
+        </p>
+
+        <div>
+            1
+            <div>
+                2
+                <div>
+                    3
+                </div>
+                <div>
+                    3
+                </div>
+            </div>
+        </div>
+
+        <ul>
+            <li>1</li>
+            <li>23</li>
+            <li>4</li>
+        </ul>
+
+        <section>
+            <article class="new">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem tenetur debitis neque
+                quisquam fuga magnam sint, id itaque consequatur? Quos accusantium modi quia repellat provident dolores
+                beatae asperiores, atque recusandae!</article>
+            <article class="new">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem tenetur debitis neque
+                quisquam fuga magnam sint, id itaque consequatur? Quos accusantium modi quia repellat provident dolores
+                beatae asperiores, atque recusandae!</article>
+            <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem tenetur debitis neque quisquam
+                fuga magnam sint, id itaque consequatur? Quos accusantium modi quia repellat provident dolores beatae
+                asperiores, atque recusandae!</article>
+        </section>
+    </main>
+    <footer>
+        &copy;2019 FMI
+    </footer>
+</body>
+
+</html>
