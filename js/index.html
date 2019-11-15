@@ -1,0 +1,97 @@
+<script>
+var var1, v2, v3;
+
+var kiro;
+kiro = 1.0;
+
+kiro = '<a href="index.html">test</a>'
+kiro = 'ti si string'
+
+
+kiro = `ti si string`
+
+let interpolatedStr = `This is the value of kiro: ${kiro}`
+
+let concatenatedStr = "This is the value of kiro:" + kiro;
+
+console.log(concatenatedStr)
+
+var boolVar = true
+boolVar = false
+
+var1 = 2;
+
+var1 = "Pesho";
+
+var1 = [1, 2, 3]
+
+console.log(var1);
+
+// {
+//     var varDefined = 12; 
+// }
+
+// {
+//     let letDefined = 12;
+//     console.log("letDefined", letDefined)
+// } 
+
+let hashMap1 = {
+    "key": "Value",
+    key1: 2,
+    key3: [1, 2, 3, null],
+    sayHi: function () {
+        alert("hi")
+    }
+}
+
+console.log(hashMap1["key1"])
+
+for (var key in hashMap1) {
+    console.log(key, hashMap1[key])
+}
+
+console.log(hashMap1.key)
+
+function testFn(a, b) {
+
+    if (b == 0){
+        console.error("Division by zero");
+        return null;
+    }
+    
+    return a / b;
+}
+
+let testFn1 = (a, b) => a + b 
+
+let kiroMood = (3 > 1) ? 'smile' : 'frown';
+
+// console.log(varDefined);
+// console.log(letDefined);
+
+
+let arr = [1, 2, 3, "sadsads", 5]
+
+arr.forEach(console.log)
+
+
+    // class Person {
+    //     constructor(){
+
+    //     }
+
+    //     sayHi(){
+    //         console.log("Hello")
+    //     }
+    // }
+
+    // let p = new Person()
+
+    // p = null;
+
+
+
+
+    // console.log([1, 2, 3, 4].filter((num) => num % 2 == 0))
+</script>
