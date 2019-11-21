@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather API fetcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="weathers.css" />
+    <script src="weather.js"></script>
+</head>
+<body>
+    <form id="search-form">
+        <input id="search" type="Text" placeholder="Enter city name" />
+        <input type="submit" value="Go" />
+    </form>
+
+    <section id="results">
+        <h1 id="city-name">Sofia</h1>
+        <figure>
+            <img id="weather-icon" src="http://openweathermap.org/img/w/10d.png" />
+            <figcaption id="description">clear sky</figcaption>
+        </figure>
+        <div>
+            <span id="temperature">4</span>°
+        </div>
+        <div>
+            <span id="humidity">43</span>%
+        </div>
+    </section>
+</body>
+</html>
