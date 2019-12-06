@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+        }
+
+        article {
+            margin: 10px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="products">
+
+        </section>
+    </main>
+    <script>
+        const API_URL = "http://localhost:82/5-php-mysql-2/online-shop"
+
+        function appendProduct(productData) {
+            console.log(productData)
+            let productElement = document.createElement("article");
+            let title = document.createElement("h2")
+            title.innerText = productData.name;
+            productElement.appendChild(title)
+
+            let description = document.createElement("p")
+            description.innerText = productData.description;
+
+            let img = document.createElement("img")
+            img.src = productData.image;
+
+            productElement.appendChild(description)
+            productElement.appendChild(img)
+
+            let container = document.querySelector("#products");
+            container.appendChild(productElement);
+        }
+
+        function fetchAllProducts() {
+            fetch(`${API_URL}/products.php`).then(function (res) {
+                return res.json()
+            }).then(function (data) {
+                for(let element of data){
+                    appendProduct(element)
+                }
+            }).catch(function (err) {
+                console.log("Something is broken");
+                console.error(err);
+            })
+        }
+
+        window.addEventListener("load", () => {
+            fetchAllProducts();
+        });
+    </script>
+</body>
+</html>

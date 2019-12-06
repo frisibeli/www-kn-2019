@@ -23,11 +23,15 @@ class ProductsRepository{
     public function search($query)
     {
         $stmt = $this->connection->prepare("SELECT * FROM shop_items WHERE name LIKE :name OR description LIKE :description");
+        $query = [
+            'name' => "Value",
+            'description' => "Value desc"
+        ];
         $stmt->execute($query);
         return $stmt->fetchALL(PDO::FETCH_ASSOC);
     }
 
-public function create($product)
+    public function create($product)
     {
         $stmt = $this->connection->prepare("INSERT INTO shop_items (name, description, image, price) VALUES (:name, :description, :image, :price)");
         return $stmt->execute($product);
