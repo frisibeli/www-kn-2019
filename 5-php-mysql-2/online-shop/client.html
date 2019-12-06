@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section id="products">
+
+        </section>
+        <button id="create">Create</button>
+    </main>
+
+    <script>
+        const API_URI = "http://localhost:82/5-php-mysql-2/online-shop"
+
+        const appendElement = (el) => {
+            let product = document.createElement("article")
+            let name = document.createElement("h2")
+            let img = document.createElement("img")
+
+            name.innerText = el.name;
+
+            product.appendChild(name)
+            product.appendChild(img)
+
+            let container = document.querySelector("#products")
+            container.appendChild(product);
+        }
+
+        window.addEventListener("load", () => {
+            let btn = document.querySelector("#create")
+            btn.addEventListener('click', () => {
+                fetch(`${API_URI}/products.php`, {
+                    method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrer: 'no-referrer', // no-referrer, *client
+                    body: JSON.stringify({
+                        name: "test",
+                        description: "test desc",
+                        price: 1243,
+                        image: "test"
+                    }) // body data type must match "Content-Type" header
+                }).then(res => {
+                    return res.json()
+                }).then(data => {
+                    console.log(data);
+                })
+            })
+
+            fetch(`${API_URI}/products.php`)
+                .then(res => res.json())
+                .then(data => {
+                    for(el of data){
+                        appendElement(el)
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+        })
+    </script>
+</body>
+</html>
