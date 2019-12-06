@@ -13,9 +13,30 @@ $product = [
     'price' => 1023
 ];
 
-$result = $productsRepository->getAllProducts();
 
-echo json_encode($result);
+
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        if ($_GET['id']){
+            $result = $productsRepository->get($_GET['id']);
+            echo json_encode($result);
+        } else {
+            $result = $productsRepository->getAllProducts();
+            echo json_encode($result);
+        }
+        break;
+
+    case 'POST':
+        $postRaw = file_get_contents('php://input');
+        $jsonParsed = json_decode($postRaw, true);
+        $result = $productsRepository->create($jsonParsed);
+        var_dump($result);
+        break;
+    
+    default:
+        echo "Unsupported method";
+        break;
+}
 
 // var_dump($productsRepository->create($product));
 

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        img{
+        img {
             width: 300px;
         }
 
@@ -16,8 +17,10 @@
         }
     </style>
 </head>
+
 <body>
     <main>
+        <button id="add-tv">Add TV</button>
         <section id="products">
 
         </section>
@@ -45,11 +48,33 @@
             container.appendChild(productElement);
         }
 
+        function createTV() {
+            fetch(`${API_URL}/products.php`,
+                {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({
+                        name: "test",
+                        description: "test desc",
+                        price: 1243,
+                        image: "test"
+                    })
+                }).then(function (res) {
+                    alert("success");
+                    return res.json()
+                }).catch(err => {
+                    alert("error");
+                })
+        }
+
         function fetchAllProducts() {
             fetch(`${API_URL}/products.php`).then(function (res) {
                 return res.json()
             }).then(function (data) {
-                for(let element of data){
+                for (let element of data) {
                     appendProduct(element)
                 }
             }).catch(function (err) {
@@ -60,7 +85,11 @@
 
         window.addEventListener("load", () => {
             fetchAllProducts();
+
+            let btn = document.querySelector("#add-tv");
+            btn.addEventListener("click", createTV)
         });
     </script>
 </body>
+
 </html>
