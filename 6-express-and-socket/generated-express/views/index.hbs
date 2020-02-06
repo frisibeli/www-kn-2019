@@ -1,0 +1,45 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<p> Is auth {{authenticated}} <p>
+
+        {{#each arr}}
+        <div class="row">{{name}}</div>
+        {{/each}}
+
+        <input id="user" type="text">
+        <ul id="messages"></ul>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            let socket = io("http://7d3f1752.ngrok.io");
+
+            socket.emit("join", "test")
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const userInput = document.querySelector("#user")
+                const messagesOut = document.querySelector("#messages")
+                const messageBox = document.querySelector("#message")
+
+                messageBox.addEventListener("keypress", e => {
+                    if (e.key == "Enter") {
+                        console.log("Send message")
+                        username = userInput.value
+                        message = messageBox.value
+                        socket.emit("clientMessage", {
+                            user: username,
+                            msg: message
+                        }
+                        )
+                    }
+                })
+
+                socket.on("broadcast", data => {
+                    let messageEl = document.createElement("li")
+                    messageEl.innerHTML = `<strong>${data.user}</strong>: ${data.msg}`
+                    messagesOut.appendChild(messageEl)
+                })
+            })
+        </script>

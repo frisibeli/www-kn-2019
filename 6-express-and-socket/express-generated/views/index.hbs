@@ -1,0 +1,40 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}. This is our text: {{test}}</p>
+
+{{#each testArray}}
+    <div class="row">{{name}}</div>
+{{/each}}
+
+
+<input type="text" id="username"></br>
+<ul id="messages"></ul>
+<textarea name="message" id="message" cols="30" rows="10" placeholder="Enter message"></textarea>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    let socket = io("//localhost:3000")
+    socket.on("connect", data => {
+        console.log("connected")
+        console.log(data);
+    })
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let username = document.querySelector("#username")
+        let messageBox = document.querySelector("#message")
+        let messagesBox = document.querySelector("#messages")
+
+        messageBox.addEventListener("keypress", e => {
+            if(e.key == "Enter") {
+                e.preventDefault()
+                console.log("enter")
+                socket.emit("messageSend", {username:username.value, message:messageBox.value})
+            }
+        })
+
+        socket.on("broadcast", data => {
+            let msg = document.createElement("li")
+            msg.innerHTML = `${data.username}: ${data.message}`
+            messagesBox.appendChild(msg)
+        })
+    })
+</script>
